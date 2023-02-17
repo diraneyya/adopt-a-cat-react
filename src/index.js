@@ -8,5 +8,5 @@ function Card() {
 
 const root = ReactDOM.createRoot(document.querySelector("#root"));
 root.render(
-  <Card></Card>
+  <Card />
 )
