@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom/client';
 
 // React component
 function Card() {
+  console.log("I am rendering a Card using React");
+
   return (
     <div className="card">
         <h4>Lucky</h4>
@@ -13,5 +15,10 @@ function Card() {
 
 const root = ReactDOM.createRoot(document.querySelector("#root"));
 root.render(
-  <Card />
+  [
+    <Card />,
+    <Card />,
+    <Card />,
+    <Card />,
+  ]
 )
