@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './style.css';
 
+// the array of animals to adopt which are objects with two properties
+// each, a name and a picture
 const animalsToAdopt = [
   {
       name: "Lucky",
@@ -25,29 +27,35 @@ const animalsToAdopt = [
   },
 ];
 
+// The Card React Function component
+// expects two props: name and picture
 const Card = (props) => {
-
   return (
     <div className="card">
         <h4>{ props.name }</h4>
-        <img src="" alt=""></img>
+        <img src={ props.picture } alt={ props.name }></img>
     </div>
   );
 }
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-function animalsToReactComponents() {
-
+// this is the callback for the map expression in "render" below
+function animalsToReactComponents(object) {
+  return <Card name={object.name} picture={object.picture} />
 }
 
 root.render(
-  // [
-  //   <Card name={ animalsToAdopt[0].name } />,
-  //   <Card name={ animalsToAdopt[1].name } />,
-  //   <Card name={ animalsToAdopt[2].name } />,
-  //   <Card name={ animalsToAdopt[3].name } />,
-  //   <Card name={ animalsToAdopt[4].name } />,
-  // ]
-  animalsToAdopt.map( animalsToReactComponents )
+  // the container with a class of deck will render the cards as flex items
+  // leading them to wrapping when the screen width is not enough.
+  // the content of the deck div React element can be one of th following:
+  // - a series of React elements/objects such as <h1> and <p> in JSX
+  // - an array of React elements/objects by mapping the array of objects using
+  //   a callback that takes the object and returns a JSX expression
+  <>
+    <h1>Adopt a Cat</h1>
+    <div className="deck">
+      { animalsToAdopt.map( animalsToReactComponents ) }
+    </div>
+  </>
 );
