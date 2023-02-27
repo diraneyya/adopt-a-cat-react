@@ -41,7 +41,7 @@ const Card = (props) => {
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 // this is the callback for the map expression in "render" below
-function animalsToReactComponents(object) {
+function animalToComponentMapping(object) {
   return <Card name={object.name} picture={object.picture} />
 }
 
@@ -55,7 +55,7 @@ root.render(
   <>
     <h1>Adopt a Cat</h1>
     <div className="deck">
-      { animalsToAdopt.map( animalsToReactComponents ) }
+      { animalsToAdopt.map( animalToComponentMapping ) }
     </div>
   </>
 );
