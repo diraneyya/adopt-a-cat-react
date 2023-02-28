@@ -36,14 +36,8 @@ const Card = ({ name, picture }) => (
   </div>
 );
 
-// testing :))))
+// Create a React root and mount the application
 const root = ReactDOM.createRoot(document.getElementById("root"));
-
-// this is the callback for the map expression in "render" below
-const animalToComponentMapping = ({ name, picture }) => (
-  <Card name={name} picture={picture} />
-);
-
 root.render(
   // the container with a class of deck will render the cards as flex items
   // leading them to wrapping when the screen width is not enough.
@@ -53,6 +47,10 @@ root.render(
   //   a callback that takes the object and returns a JSX expression
   <>
     <h1>Adopt a Cat</h1>
-    <div className="deck">{animalsToAdopt.map(animalToComponentMapping)}</div>
+    <div className="deck">{
+      animalsToAdopt.map(({ name, picture }) => (
+        <Card name={name} picture={picture} />
+      ))
+    }</div>
   </>
 );
