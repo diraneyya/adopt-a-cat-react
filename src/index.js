@@ -29,22 +29,20 @@ const animalsToAdopt = [
 
 // The Card React Function component
 // expects two props: name and picture
-const Card = ({ name, picture }) => {
-  return (
-    <div className="card">
-      <h4>{name}</h4>
-      <img src={picture} alt={name}></img>
-    </div>
-  );
-};
+const Card = ({ name, picture }) => (
+  <div className="card">
+    <h4>{name}</h4>
+    <img src={picture} alt={name}></img>
+  </div>
+);
 
 // testing :))))
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 // this is the callback for the map expression in "render" below
-const animalToComponentMapping = ({ name, picture }) => {
-  return <Card name={name} picture={picture} />;
-};
+const animalToComponentMapping = ({ name, picture }) => (
+  <Card name={name} picture={picture} />
+);
 
 root.render(
   // the container with a class of deck will render the cards as flex items
